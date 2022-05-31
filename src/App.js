@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState, useEffect} from "react";
+// import ApiContainer from "./ApiContainer";
+ 
+function App(){
+   const [showApis, setShowApis] = useState([]);
+ 
+   useEffect(() => {
+       fetch("http://localhost:5000/apis")
+         .then((r) => r.json())
+         .then((data) => {
+            setShowApis(data)})
+     }, []);
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+ 
+  
+   return (
+       <div className="">
+           <h1>test</h1>
+           {/* <Header /> */}
+           {/* <ApiContainer showApis={showApis}/> */}
+       </div>
+   )
+ 
 }
-
 export default App;
